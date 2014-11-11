@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /** Class for buffered value reading */
-public class Reader {
+class Reader {
     static BufferedReader reader;
     static StringTokenizer tokenizer;
 
@@ -32,12 +32,15 @@ public class Reader {
         }
         return tokenizer.nextToken();
     }
+
     static long nextLong() throws IOException {
         return Long.parseLong(next());
     }
+
     static int nextInt() throws IOException {
         return Integer.parseInt(next());
     }
+
     static double nextDouble() throws IOException {
         return Double.parseDouble(next());
     }
