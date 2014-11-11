@@ -14,26 +14,19 @@ public class Main {
         try {
             n = Reader.nextInt();
             for(int c = 0; c<n;c++){
-                long sum =0;
                 int i = Reader.nextInt();
                 int[] relatives = new int[i];
                 for(int k=0;k<i;k++){
                     relatives[k]=Reader.nextInt();
-                    sum+=relatives[k];
                 }
                 //now the real shit
                 Arrays.sort(relatives);
                 //System.out.println("Sum = " +sum);
-                long distance = sum - (relatives[0])*(i),bestdistance=distance;
-                //System.out.println("Distance at: "+relatives[0]+ " = " +bestdistance);
-                for(int k=1; k<i-1;k++){
-                    distance+=(relatives[k]-relatives[k-1])*(2*k-i);
-                    //System.out.println("Distance at: "+relatives[k]+ " = "+distance);
-                    if(distance < bestdistance){
-                        bestdistance = distance;
-                    }
-                }
-                System.out.println(bestdistance);
+                int sum=0;
+                int index = (i-1)/2;
+                for(int k=0;k<index;k++)sum+=relatives[index]-relatives[k];
+                for(int k=index+1;k<i;k++)sum+=relatives[k]-relatives[index];
+                System.out.println(sum);
             }
         } catch (IOException e) {
             e.printStackTrace();
