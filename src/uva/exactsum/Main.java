@@ -18,24 +18,24 @@ class Main {
         Reader.init(System.in);
         int n;
         try {
-        while(true){
-            n = Reader.nextInt();
-            long[] prices = new long[n];
-            for(int i=0; i<n;i++)prices[i]=Reader.nextLong();
-            Arrays.sort(prices);
-            int l=-1,r=n-1,foundsuml=0,foundsumr=n-1;
-            long m = Reader.nextLong();
-            while(l!=r) {
-                l++;
-                while (prices[l]+prices[r] < m && l<r) l++;
-                while (prices[l]+prices[r] > m && r>l) r--;
-                if(prices[l]+prices[r]==m){
-                    foundsuml=l;
-                    foundsumr=r;
+            while(true){
+                n = Reader.nextInt();
+                long[] prices = new long[n];
+                for(int i=0; i<n;i++)prices[i]=Reader.nextLong();
+                Arrays.sort(prices);
+                int l=-1,r=n-1,foundsuml=0,foundsumr=n-1;
+                long m = Reader.nextLong();
+                while(l!=r) {
+                    l++;
+                    while (prices[l]+prices[r] < m && l<r) l++;
+                    while (prices[l]+prices[r] > m && r>l) r--;
+                    if(prices[l]+prices[r]==m){
+                        foundsuml=l;
+                        foundsumr=r;
+                    }
                 }
+                System.out.println("Peter should buy books whose prices are "+prices[foundsuml]+" and "+prices[foundsumr]+".\n");
             }
-            System.out.println("Peter should buy books whose prices are "+prices[foundsuml]+" and "+prices[foundsumr]+".\n");
-        }
         } catch (Exception ignored) {
 
         }

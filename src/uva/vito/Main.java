@@ -19,28 +19,23 @@ public class Main {
                 for(int k=0;k<i;k++){
                     relatives[k]=Reader.nextInt();
                 }
-                //now the real shit
                 Arrays.sort(relatives);
-                //System.out.println("Sum = " +sum);
                 int sum=0;
                 int index = (i-1)/2;
                 for(int k=0;k<index;k++)sum+=relatives[index]-relatives[k];
                 for(int k=index+1;k<i;k++)sum+=relatives[k]-relatives[index];
                 System.out.println(sum);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException ignored) {}
     }
 }
-
 /** Class for buffered value reading */
 class Reader {
     static BufferedReader reader;
     static StringTokenizer tokenizer;
 
     /** call this method to initialize reader for InputStream */
-    public static void init(InputStream input) {
+    static void init(InputStream input) {
         reader = new BufferedReader(
                 new InputStreamReader(input) );
         tokenizer = new StringTokenizer("");
