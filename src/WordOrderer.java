@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Time: 13:13
  */
 public class WordOrderer {
-    public static String orderby(String word, String order){
+    public static String orderBy(String word, String order) {
         Map<Character,Integer> count = new LinkedHashMap<Character, Integer>();
         for(int i = 0; i<order.length();i++){
             char c = order.charAt(i);
@@ -21,16 +21,16 @@ public class WordOrderer {
             if(v==null)throw new IllegalArgumentException("Order source doesn't have all required characters.");
             count.put(c,v+1);
         }
-        String result = "";
+        StringBuilder result = new StringBuilder(word.length());
         for(Map.Entry<Character,Integer> e : count.entrySet()){
-            for(int i=0;i<e.getValue();i++)result = result.concat(e.getKey().toString());
+            for (int i = 0; i < e.getValue(); i++) result = result.append(e.getKey());
         }
-        return result;
+        return result.toString();
     }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String word = sc.nextLine();
         String order = sc.nextLine();
-        System.out.println(orderby(word,order));
+        System.out.println(orderBy(word, order));
     }
 }
